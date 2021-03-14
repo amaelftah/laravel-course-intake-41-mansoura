@@ -1,9 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<a href="#" class="btn btn-success">Create Post</a>
+<div class="d-flex">
+  <a href="#" class="mx-auto btn btn-success">Create Post</a>
+</div>
 
-    <table class="table  mt-5 container">
+    <table class="table mt-5">
         <thead>
           <tr>
             <th scope="col">#</th>
