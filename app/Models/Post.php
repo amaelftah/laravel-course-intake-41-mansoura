@@ -12,5 +12,17 @@ class Post extends Model
     protected $fillable = [
         'title',
         'description',
+        'user_id',
     ];
+
+    //we had to put foreignKey cause function name isn't the same as foreign key column
+    // public function myUserRelation()
+    // {
+    //     return $this->belongsTo(User::class,'user_id');
+    // }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

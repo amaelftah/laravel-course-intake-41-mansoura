@@ -11,7 +11,15 @@
       <label for="description" class="form-label">Description</label>
       <textarea class="form-control" name="description"></textarea>
     </div>
-    <input type="hidden" name="mass_assignment" value="akjsdkasd">
+    <div class="mb-3">
+      <label for="post_creator" class="form-label">Post Creator</label>
+      <select class="form-control" name="user_id">
+        @foreach($users as $user)
+          <option value="{{$user->id}}">{{$user->name}}</option>
+        @endforeach
+      </select>
+    </div>
+    
     <button type="submit" class="btn btn-success">Create</button>
   </form>
 
