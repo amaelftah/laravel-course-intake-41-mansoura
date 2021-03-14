@@ -38,7 +38,7 @@ class PostController extends Controller
         //$data = request()->all();
         // request()->title == $data['title']
 
-        // Post::create($data);
+        Post::create($data);
 
         // Post::create($myRequestObject->all());
 
