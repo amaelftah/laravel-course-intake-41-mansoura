@@ -46,6 +46,7 @@ class PostController extends Controller
             'description' => ['required']
         ],[
             'title.required' => 'watch out the title is required dadasd',
+            'title.min' => 'override the min',
         ]);
 
         Post::create($data);
