@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Requests\StorePostRequest;
 
 class PostController extends Controller
 {
@@ -35,19 +36,19 @@ class PostController extends Controller
         ]);
     }
 
-    public function store(Request $myRequestObject)
+    public function store(StorePostRequest $myRequestObject)
     {
         $data = $myRequestObject->all();
         //$data = request()->all();
         // request()->title == $data['title']
 
-        $myRequestObject->validate([
-            'title' => ['required', 'min:3'],
-            'description' => ['required']
-        ],[
-            'title.required' => 'watch out the title is required dadasd',
-            'title.min' => 'override the min',
-        ]);
+        // $myRequestObject->validate([
+        //     'title' => ['required', 'min:3'],
+        //     'description' => ['required']
+        // ],[
+        //     'title.required' => 'watch out the title is required dadasd',
+        //     'title.min' => 'override the min',
+        // ]);
 
         Post::create($data);
 
