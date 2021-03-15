@@ -41,6 +41,13 @@ class PostController extends Controller
         //$data = request()->all();
         // request()->title == $data['title']
 
+        $myRequestObject->validate([
+            'title' => ['required', 'min:3'],
+            'description' => ['required']
+        ],[
+            'title.required' => 'watch out the title is required dadasd',
+        ]);
+
         Post::create($data);
 
         // Post::create($myRequestObject->all());
