@@ -18,10 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('posts', [PostController::class, 'index'])->name('posts.index');
-Route::get('/posts/create',[PostController::class,'create'])->name('posts.create');
-Route::post('posts',[PostController::class,'store'])->name('posts.store');
-Route::get('/posts/{post}',[PostController::class, 'show'])->name('posts.show');
+Route::get('posts', [PostController::class, 'index'])->name('posts.index')->middleware('auth');
+Route::get('/posts/create',[PostController::class,'create'])->name('posts.create')->middleware('auth');
+Route::post('posts',[PostController::class,'store'])->name('posts.store')->middleware('auth');
+Route::get('/posts/{post}',[PostController::class, 'show'])->name('posts.show')->middleware('auth');
 //Route::get('test3', 'App\Http\Controllers\TestController@testAction'); just for learning
 
 Route::get('/test', function () {
@@ -34,3 +34,7 @@ Route::get('/test', function () {
         'posts' => $posts
     ]);
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
